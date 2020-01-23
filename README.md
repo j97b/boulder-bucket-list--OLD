@@ -20,6 +20,8 @@
 
 [Author](#author)
 
+[External Links](#links)
+
 <a name="brief"></a>
 ## Project Brief
  
@@ -107,3 +109,10 @@ I would also like to add a note system, where each boulder can have a number of 
 ## Author
 
 James Barron
+
+<a name="links"></a>
+## Links
+
+[Trello board](https://trello.com/b/smf3HVHB/bouldering-bucket-list)
+
+[Slides for presentation given on 20/01/2020](https://drive.google.com/file/d/1jSpfCxke0iwbbhMG-sXShDcBtMZq94Mp/view?usp=sharing)

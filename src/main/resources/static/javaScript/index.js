@@ -1,5 +1,7 @@
+let urlPre="/bbl";
+
 function makeUsersTable() {
-    axios.get("/userApp/user")
+    axios.get(urlPre + "/userApp/user")
         .then(response => {
             response.data.forEach(user => {
                 let table = document.getElementById('names');
@@ -28,7 +30,7 @@ function addUser() {
             "name": name.value,
             "boulders": []
         }
-        axios.post("/userApp/user", user).then( () => {
+        axios.post(urlPre + "/userApp/user", user).then( () => {
             window.location.reload();
         });
     }

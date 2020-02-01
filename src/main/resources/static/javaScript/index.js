@@ -1,30 +1,46 @@
 let urlPre="";
 
-function addUser() {
+async function addUser() {
     let name = document.getElementById("userName").value;
     let password = document.getElementById("userPassword").value;
     let passwordConfirm = document.getElementById("userPasswordConfirm").value;
+    checkName(name);
+    await new Promise(r => setTimeout(r, 50));
+    console.log(sessionStorage.getItem("valid"))
     if (name === "" || password === "") {
-        document.getElementById("noEntryErrorMessage").setAttribute("style","");
+        document.getElementById("noEntryErrorMessage").setAttribute("style", "");
     } else if (name.length > 20) {
-        document.getElementById("nameTooLongErrorMessage").setAttribute("style","");
+        document.getElementById("nameTooLongErrorMessage").setAttribute("style", "");
     } else if (password !== passwordConfirm) {
-        document.getElementById("differentPasswordsErrorMessage").setAttribute("style","");
-    } else {
-            let user = {
-                "username": name,
-                "hashedPassword": hash(password),
-                "boulders": []
-            }
-            axios.post(urlPre + "/userApp/user", user).then(() => {
-                $('#addUserForm').modal('hide')
-            });
+        document.getElementById("differentPasswordsErrorMessage").setAttribute("style", "");
+    } else if (sessionStorage.getItem("valid") === "true") {
+        let user = {
+            "username": name,
+            "hashedPassword": hash(password),
+            "boulders": []
+        }
+        axios.post(urlPre + "/userApp/user", user).then(() => {
+            $('#addUserForm').modal('hide')
+        });
     }
 }
 
 function getData() {
     axios.get(urlPre + "/userApp/user")
         .then(response => {login(response.data);});
+}
+
+function checkName(name) {
+    sessionStorage.setItem("valid","true");
+    axios.get(urlPre + "/userApp/user")
+        .then(response => {
+            for (let i=0; i<response.data.length; i++) {
+                if (name===response.data[i].username.toString()) {
+                    document.getElementById("nonUniqueNameErrorMessage").setAttribute("style","");
+                    sessionStorage.setItem("valid","false");
+                }
+            }
+        })
 }
 
 function login(users) {
@@ -57,7 +73,6 @@ function hash(s) {
     var a = 1, c = 0, h, o;
     if (s) {
         a = 0;
-        /*jshint plusplus:false bitwise:false*/
         for (h = s.length - 1; h >= 0; h--) {
             o = s.charCodeAt(h);
             a = (a<<6&268435455) + o + (o<<14);

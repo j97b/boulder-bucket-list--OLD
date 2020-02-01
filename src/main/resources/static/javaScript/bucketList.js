@@ -391,8 +391,8 @@ function showUserInfo() {
     let userId = sessionStorage.getItem("userID");
     let url = urlPre + "/userApp/user/" + userId;
     axios.get(url).then(response => {
-        document.getElementById("userInfo").innerText = capitaliseString(response.data.name);
-        document.getElementById("deleteUserHeading").innerText = "Deleting user " + capitaliseString(response.data.name);
+        document.getElementById("userInfo").innerText = response.data.username;
+        document.getElementById("deleteUserHeading").innerText = "Deleting user " + response.data.username;
         })
 }
 

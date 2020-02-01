@@ -15,11 +15,14 @@
         <h1><br>Welcome to the<br>Bouldering Bucket List</h1>
     </div>
     <div class="sub-heading">
-        <h3>Who's Bucket List would you like to see?</h3>
+        <h3>Please sign in</h3>
     </div>
-    <div>
-        <table id="names">
-        </table>
+    <div class="form-group row centered">
+        <label for="usernameInput" class="col-sm-5 col-form-label">Username</label>
+        <input type="text" class="form-control col-sm-6" id="usernameInput"/>
+        <label for="passwordInput" class="col-sm-5 col-form-label">Password</label>
+        <input type="password" class="form-control col-sm-6" id="passwordInput"/>
+        <button type="button" class="btn textButton">Sign in</button>
     </div>
 
     <div class="modal fade" id="addUserForm" tabindex="-1" role="dialog" aria-labelledby="addUserForm" aria-hidden="true">
@@ -32,9 +35,22 @@
                     <div class="form-group row">
                             <label for="userName" class="col-sm-5 col-form-label">Name:</label>
                             <input type="text" class="form-control col-sm-6" id="userName"/>
+                            <label for="userPassword" class="col-sm-5 col-form-label">Password</label>
+                            <input type="password" class="form-control col-sm-6" id="userPassword"/>
+                            <label for="userPasswordConfirm" class="col-sm-5 col-form-label">Confirm Password</label>
+                            <input type="password" class="form-control col-sm-6" id="userPasswordConfirm"/>
                     </div>
-                    <div style="display: none" id="invalidNameErrorMessage">
-                            <p style="color: #F0453B">Please enter a name between 1 and 20 characters</p>
+                    <div style="display: none" id="noEntryErrorMessage">
+                            <p style="color: #F0453B">Please enter a username and password</p>
+                    </div>
+                    <div style="display: none" id="nameTooLongErrorMessage">
+                        <p style="color: #F0453B">Username must be less than 20 characters</p>
+                    </div>
+                    <div style="display: none" id="nonUniqueNameErrorMessage">
+                        <p style="color: #F0453B">That username is already in use</p>
+                    </div>
+                    <div style="display: none" id="differentPasswordsErrorMessage">
+                        <p style="color: #F0453B">Passwords do not match</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -50,7 +66,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="javaScript/index.js"></script>
-    <script>makeUsersTable()</script>
 
 </body>
 

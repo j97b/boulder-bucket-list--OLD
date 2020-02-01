@@ -46,6 +46,10 @@ td {
     text-align: center;
 }
 
+.centered {
+    width: 600px;
+    margin: auto;
+}
 
 .userInfo {
     position: absolute;

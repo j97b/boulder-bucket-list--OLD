@@ -19,7 +19,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String name;
+	private String username;
+	private String hashedPassword;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
@@ -29,9 +30,10 @@ public class User {
 		super();
 	}
 
-	public User(String name) {
+	public User(String username, String hashedPassword) {
 		super();
-		this.name = name;
+		this.username = username;
+		this.hashedPassword = hashedPassword;
 	}
 
 	public long getId() {
@@ -50,17 +52,21 @@ public class User {
 		this.boulders = boulders;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String username) {
-		this.name = username;
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
+	public String getHashedPassword() { return hashedPassword; }
+
+	public void setHashedPassword(String hashedPassword) { this.hashedPassword = hashedPassword; }
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, boulders);
+		return Objects.hash(id, username, hashedPassword, boulders);
 	}
 
 	@Override
@@ -69,13 +75,15 @@ public class User {
 		if (!(o instanceof User)) return false;
 		User user = (User) o;
 		return getId() == user.getId() &&
-				getName().equals(user.getName()) &&
+				getUsername().equals(user.getUsername()) &&
+				getHashedPassword().equals(user.getHashedPassword()) &&
 				Objects.equals(getBoulders(), user.getBoulders());
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", boulders=" + boulders + ", name=" + name + "]";
+		return "User [id=" + id + ", boulders=" + boulders + ", username=" + username +
+				", hashedPassword=" + hashedPassword + "]";
 	}
 
 }

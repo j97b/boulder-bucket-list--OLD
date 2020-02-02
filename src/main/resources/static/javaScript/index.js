@@ -1,6 +1,7 @@
 let urlPre="";
 
 async function addUser() {
+    resetErrorMessages();
     let name = document.getElementById("userName").value;
     let password = document.getElementById("userPassword").value;
     let passwordConfirm = document.getElementById("userPasswordConfirm").value;
@@ -28,6 +29,7 @@ async function addUser() {
 function getData() {
     axios.get(urlPre + "/userApp/user")
         .then(response => {login(response.data);});
+    document.getElementById("invalidLoginErrorMessage").setAttribute("style","");
 }
 
 function checkName(name) {
@@ -44,33 +46,32 @@ function checkName(name) {
 }
 
 function login(users) {
-    document.getElementById("invalidLoginErrorMessage").setAttribute("style","display: hidden");
+    document.getElementById("invalidLoginErrorMessage").setAttribute("style", "display: hidden");
     let name = document.getElementById("usernameInput");
     let password = document.getElementById("passwordInput");
-    for (let i=0; i<users.length; i++) {
-        if (name.value===users[i].username.toString() && hash(password.value)===users[i].hashedPassword.toString()) {
-            sessionStorage.setItem("userID",users[i].id);
+    for (let i = 0; i < users.length; i++) {
+        if (name.value === users[i].username.toString() && hash(password.value) === users[i].hashedPassword.toString()) {
+            sessionStorage.setItem("userID", users[i].id);
             window.location = "html/bucketList.html";
         }
     }
-    document.getElementById("invalidLoginErrorMessage").setAttribute("style","");
 }
 
-function resetAddModal() {
-    let name = document.getElementById("userName");
-    let password = document.getElementById("userPassword");
-    let passwordConfirm = document.getElementById("userPasswordConfirm");
+function resetErrorMessages() {
     document.getElementById("noEntryErrorMessage").setAttribute("style", "display: none");
     document.getElementById("nameTooLongErrorMessage").setAttribute("style","display: none");
     document.getElementById("nonUniqueNameErrorMessage").setAttribute("style","display: none");
-    document.getElementById("differentPasswordsErrorMessage").setAttribute("style","display: none");
-    name.value = "";
-    password.value="";
-    passwordConfirm.value="";
+    document.getElementById("differentPasswordsErrorMessage").setAttribute("style","display: none")
+}
+
+function resetModalValues() {
+    document.getElementById("userName").value = "";
+    document.getElementById("userPassword").value = "";
+    document.getElementById("userPasswordConfirm").value = "";
 }
 
 function hash(s) {
-    var a = 1, c = 0, h, o;
+    let a = 1, c = 0, h, o;
     if (s) {
         a = 0;
         for (h = s.length - 1; h >= 0; h--) {

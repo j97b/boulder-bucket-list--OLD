@@ -3,7 +3,7 @@ pipeline {
     stages {
 	stage('---SSH into test env---') {
 	    steps {
-		sh "ssh -i "project.pem" ubuntu@ec2-3-8-144-216.eu-west-2.compute.amazonaws.com"
+		sh "ssh -i 'project.pem' ubuntu@ec2-3-8-144-216.eu-west-2.compute.amazonaws.com"
 	    }
 	}
         //stage('---Clear---') {

@@ -37,8 +37,8 @@ public class UserControllerTest {
     public void init() {
         this.userList = new ArrayList<>();
         this.userList.add(testUser);
-        this.testUser = new User("name");
-        this.testUserWithID = new User(testUser.getName());
+        this.testUser = new User("name","password");
+        this.testUserWithID = new User(testUser.getUsername(),testUser.getHashedPassword());
         this.testUserWithID.setId(userID);
     }
 
@@ -74,8 +74,8 @@ public class UserControllerTest {
 
     @Test
     public void updateUserTest() {
-        User newUser = new User("James");
-        User updatedUser = new User(newUser.getName());
+        User newUser = new User("James","otherpassword");
+        User updatedUser = new User(newUser.getUsername(),newUser.getHashedPassword());
         updatedUser.setId(this.userID);
 
         when(this.service.updateUser(newUser,this.userID)).thenReturn(updatedUser);

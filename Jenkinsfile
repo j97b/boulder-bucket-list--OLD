@@ -4,6 +4,8 @@ pipeline {
 	stage('---SSH into test env---') {
 	    steps {
 		sh "ssh -i "project.pem" ubuntu@ec2-3-8-144-216.eu-west-2.compute.amazonaws.com"
+	    }
+	}
         //stage('---Clear---') {
             //steps {
                 //sh "docker stop event-booking-system"
@@ -37,6 +39,4 @@ pipeline {
                 sh "docker run --name bbl-backend-test -d -p 8085:8082 bbl-backend-test"
                 }
           }
-    }
-}
     }

@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('---Clear---') {
-            steps {
-                sh "docker stop bbl-backend-test"
-                sh "docker rm bbl-backend-test"
-                sh "docker rmi -f bbl-backend-test"
-		sh "cd"
-		sh "sudo rm -r boulder-bucket-list"
-            }
-        }
+//        stage('---Clear---') {
+//            steps {
+//                sh "docker stop bbl-backend-test"
+//                sh "docker rm bbl-backend-test"
+//                sh "docker rmi -f bbl-backend-test"
+//		sh "cd"
+//		sh "sudo rm -r boulder-bucket-list"
+//            }
+//       }
 	stage('--Clone project--') {
             steps {
                 sh "git clone -b development https://github.com/j97b/boulder-bucket-list.git"

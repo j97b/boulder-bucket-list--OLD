@@ -15,8 +15,6 @@
 	<name>boulder-bucket-list</name>
 	<packaging>jar</packaging>
 
-
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -24,7 +22,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<name>bbl-backend-hosted</name>
+			<name>maven-snapshots</name>
 			<url>http://3.11.84.155:8081/repository/bbl-backend-hosted/</url>
 		</snapshotRepository>
 	</distributionManagement>

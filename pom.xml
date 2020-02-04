@@ -22,7 +22,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<name>maven-snapshots</name>
+			<name>bbl-backend-hosted</name>
 			<url>http://3.11.84.155:8081/repository/bbl-backend-hosted/</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -90,14 +90,14 @@
 					<artifactId>spring-boot-maven-plugin</artifactId>
 				</plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>${maven-deploy-plugin.version}</version>
-					<configuration>
-						<skip>true</skip>
-					</configuration>
-				</plugin>
+<!--				<plugin>-->
+<!--					<groupId>org.apache.maven.plugins</groupId>-->
+<!--					<artifactId>maven-deploy-plugin</artifactId>-->
+<!--					<version>${maven-deploy-plugin.version}</version>-->
+<!--					<configuration>-->
+<!--						<skip>true</skip>-->
+<!--					</configuration>-->
+<!--				</plugin>-->
 
 <!--				<plugin>-->
 <!--				   <groupId>org.sonatype.plugins</groupId>-->

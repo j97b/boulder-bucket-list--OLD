@@ -18,7 +18,7 @@ pipeline {
             }
         stage('--Deploy--') {
               steps {
-                    sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PSSWRD}"
+                    sh "docker login -u $env.DOCKER_USER -p $env.DOCKER_PSSWRD"
                     sh "docker tag bbl-backend-test tigs1995/bbl-backend-test"
                     sh "docker push tigs1995/bbl-backend-test"
                     }

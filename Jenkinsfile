@@ -1,6 +1,6 @@
 pipeline { environment {
 	registry = "tigs1995/bbl-backend-test"
-	registryCredential = 'dockerhub'
+	registryCredential = "dockerhub"
 }
     agent any
     stages {
@@ -36,8 +36,8 @@ pipeline { environment {
         }
 	stage('--Deploy--') {
           steps {
-                sh "docker tag bbl-backend-test registry"
-		sh "docker push registry"
+                sh "docker tag bbl-backend-test tigs1995/bbl-backend-test""
+		sh "docker push tigs1995/bbl-backend-test"
                 }
           }
     }

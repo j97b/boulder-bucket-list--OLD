@@ -36,7 +36,7 @@ pipeline { environment {
         }
 	stage('--Deploy--') {
           steps {
-                sh "docker tag bbl-backend-test tigs1995/bbl-backend-test""
+                sh "docker tag bbl-backend-test tigs1995/bbl-backend-test"
 		sh "docker push tigs1995/bbl-backend-test"
                 }
           }

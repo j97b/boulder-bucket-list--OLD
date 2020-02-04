@@ -22,15 +22,10 @@
 	</properties>
 
 	<distributionManagement>
-		<repository>
-			<id>nexus</id>
-			<name>maven-releases</name>
-			<url>http://3.8.223.175:8081/repository/bbl-maven-proxy/</url>
-		</repository>
 		<snapshotRepository>
 			<id>nexus</id>
 			<name>maven-snapshots</name>
-			<url>http://3.11.159.169:8081/repository/maven-snapshots/</url>
+			<url>http://3.11.84.155:8081/repository/bbl-backend-hosted/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -101,25 +96,25 @@
 					</configuration>
 				</plugin>
 
-				<plugin>
-				   <groupId>org.sonatype.plugins</groupId>
-				   <artifactId>nexus-staging-maven-plugin</artifactId>
-				   <version>1.5.1</version>
-				   <executions>
-					  <execution>
-						 <id>default-deploy</id>
-						 <phase>deploy</phase>
-						 <goals>
-							<goal>deploy</goal>
-						 </goals>
-					  </execution>
-				   </executions>
-				   <configuration>
-					  <serverId>nexus</serverId>
-					  <nexusUrl>http://3.11.159.169:8081/nexus/</nexusUrl>
-					  <skipStaging>true</skipStaging>
-				   </configuration>
-				</plugin>
+<!--				<plugin>-->
+<!--				   <groupId>org.sonatype.plugins</groupId>-->
+<!--				   <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--				   <version>1.5.1</version>-->
+<!--				   <executions>-->
+<!--					  <execution>-->
+<!--						 <id>default-deploy</id>-->
+<!--						 <phase>deploy</phase>-->
+<!--						 <goals>-->
+<!--							<goal>deploy</goal>-->
+<!--						 </goals>-->
+<!--					  </execution>-->
+<!--				   </executions>-->
+<!--				   <configuration>-->
+<!--					  <serverId>nexus</serverId>-->
+<!--					  <nexusUrl>http://3.11.159.169:8081/nexus/</nexusUrl>-->
+<!--					  <skipStaging>true</skipStaging>-->
+<!--				   </configuration>-->
+<!--				</plugin>-->
 
 				<plugin>
 					<groupId>org.jacoco</groupId>

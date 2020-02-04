@@ -7,7 +7,7 @@ pipeline {
 //                sh "docker rm bbl-backend-test"
 //                sh "docker rmi -f bbl-backend-test"
 		sh "cd"
-		sh "sudo rm -r boulder-bucket-list"
+		sh "rm -rf boulder-bucket-list"
           }
        }
 	stage('--Clone project--') {

@@ -17,7 +17,7 @@ pipeline {
         }
 	stage('--Remove static folder--') {
             steps {
-                sh "mv boulder-bucket-list/src/main/resources/static ."
+                sh "rm -rf boulder-bucket-list/src/main/resources/static"
 		sh "cd boulder-bucket-list"
                 }
         }

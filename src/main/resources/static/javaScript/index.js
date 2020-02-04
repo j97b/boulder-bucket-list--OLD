@@ -1,4 +1,4 @@
-let urlPre="";
+let urlPre="/bbl";
 
 async function addUser() {
     resetErrorMessages();

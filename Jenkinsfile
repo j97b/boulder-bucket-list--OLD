@@ -1,44 +1,27 @@
-pipeline { environment {
-	registry = "tigs1995/bbl-backend-test"
-	registryCredential = "dockerhub"
-}
+pipeline {
     agent any
     stages {
-        stage('---Clear---') {
-            steps {
-//                sh "docker stop bbl-backend-test"
-//                sh "docker rm bbl-backend-test"
-//                sh "docker rmi -f bbl-backend-test"
-		sh "cd"
-		sh "rm -rf boulder-bucket-list"
-          }
-       }
-	stage('--Clone project--') {
-            steps {
-                sh "git clone -b development https://github.com/j97b/boulder-bucket-list.git"
-                }
-        }
-	stage('--Remove static folder--') {
-            steps {
-                sh "rm -rf boulder-bucket-list/src/main/resources/static"
-		sh "cd boulder-bucket-list"
-                }
-        }
-	stage('--Mvn clean package--') {
-            steps {
-                sh "mvn clean package"
-                }
-        }
-        stage('--Build back-end--') {
-            steps {
-                sh "docker build -t bbl-backend-test ."
-                }
-        }
-	stage('--Deploy--') {
-          steps {
-                sh "docker tag bbl-backend-test tigs1995/bbl-backend-test"
-		sh "docker push tigs1995/bbl-backend-test"
-                }
-          }
+        stage('--Remove static folder--') {
+                steps {
+                    sh "rm -rf src/main/resources/static/"
+                    }
+            }
+        stage('--Mvn clean package--') {
+                steps {
+                    sh "mvn clean package deploy"
+                    }
+            }
+            stage('--Build back-end--') {
+                steps {
+                    sh "docker build -t bbl-backend-test ."
+                    }
+            }
+        stage('--Deploy--') {
+              steps {
+                    sh "docker login -u $DOCKER_USER -p $DOCKER_PSSWRD"
+                    sh "docker tag bbl-backend-test tigs1995/bbl-backend-test"
+                    sh "docker push tigs1995/bbl-backend-test"
+                    }
+              }
     }
 }

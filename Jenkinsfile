@@ -31,16 +31,11 @@ pipeline {
                 sh "docker build -t bbl-backend-test ."
                 }
         }
-        stage('--Containerize back-end--') {
+	stage('--Deploy--') {
           steps {
-                sh "docker run --name bbl-backend-test -d -p 8085:8082 bbl-backend-test"
+                sh "docker tag bbl-backend-test tigs1995/bbl-backend-test"
+		sh "docker push tigs1995/bbl-backend-test"
                 }
           }
-	//stage('--Deploy--') {
-          //steps {
-                //sh "cd .."
-		//sh "sudo cp /var/lib/jenkins/workspace/${JOB_NAME}/Java/target/boulder-bucket-list.jar"
-                //}
-          //}
     }
 }

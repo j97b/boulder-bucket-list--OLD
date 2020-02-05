@@ -9,7 +9,7 @@ pipeline {
         }
         stage('--Build front-end--') {
             steps {
-                sh "docker build -t bbl-frontend-test ."
+                sh "docker build -f DockerfileFrontend -t bbl-frontend-test ."
             }
         }
         stage('--deploy--') {

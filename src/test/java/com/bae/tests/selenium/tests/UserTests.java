@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,6 +21,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -34,13 +37,39 @@ public class UserTests {
     private WebDriver driver;
 
     @Before
-    public void startup() {
-        System.setProperty(Constants.PROPERTY, Constants.PATH);
+    public void setup() {
+        if (isLinux()){
+            System.setProperty("webdriver.chrome.driver", "/snap/bin/chromium.chromedriver");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+        }
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        this.driver.manage().window().setSize(new Dimension(1600, 700));
+        options.setBinary("/usr/bin/chromium-browser");
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-debugging-port=9222");
+        driver = new ChromeDriver(
+                (ChromeDriverService)(new ChromeDriverService.Builder() {
+                    @Override
+                    protected File findDefaultExecutable() {
+                        if (new File("/snap/bin/chromium.chromedriver").exists()) {
+                            return new File("/snap/bin/chromium.chromedriver") {
+                                @Override
+                                public String getCanonicalPath() throws IOException {
+                                    return this.getAbsolutePath();
+                                }
+                            };
+                        } else {
+                            return super.findDefaultExecutable();
+                        }
+                    }
+                }).build(), options );
+    }
+    public boolean isLinux(){
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win")) return false;
+        return true;
     }
 
     @Test

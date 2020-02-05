@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('--Isolate frontend folder--') {
             steps {
-                sh "mv src/main/resources/static/ .."
-                sh "cd ../static/"
+            sh "rm Dockerfile"
+            sh "cd src/main/resources/static/"
             }
         }
         stage('--Build front-end--') {

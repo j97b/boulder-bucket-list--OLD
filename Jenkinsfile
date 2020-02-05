@@ -15,7 +15,7 @@ pipeline {
             }
         stage('--Mvn clean package--') {
                 steps {
-                    sh "mvn -Dtest=\!selenium* clean package deploy"
+                    sh "mvn clean package deploy"
                     }
             }
             stage('--Build back-end--') {

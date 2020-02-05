@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('--Docker setup--') {
                 steps {
-                    sh "sudo apt update"
-                    sh "sudo apt install docker.io -y"
-                    sh "sudo usermod -aG docker $USER"
-                    sh "sudo chmod 777 /var/run/docker.sock"
-                    sh "sudo systemctl enable docker"
+                    sh "apt update"
+                    sh "apt install docker.io -y"
+                    sh "usermod -aG docker $USER"
+                    sh "chmod 777 /var/run/docker.sock"
+                    sh "systemctl enable docker"
                 }
          }
         stage('--Remove static folder--') {

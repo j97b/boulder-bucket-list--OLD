@@ -1,13 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('--Docker setup--') {
-                steps {
-                    sh "usermod -aG docker $USER"
-                    sh "chmod 777 /var/run/docker.sock"
-                    sh "systemctl enable docker"
-                }
-         }
+//         stage('--Docker setup--') {
+//                 steps {
+//                     sh "usermod -aG docker $USER"
+//                     sh "chmod 777 /var/run/docker.sock"
+//                     sh "systemctl enable docker"
+//                 }
+//          }
         stage('--Remove static folder--') {
                 steps {
                     sh "rm -rf src/main/resources/static/"

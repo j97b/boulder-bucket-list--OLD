@@ -53,8 +53,8 @@ public class UserTests {
                 (ChromeDriverService)(new ChromeDriverService.Builder() {
                     @Override
                     protected File findDefaultExecutable() {
-                        if (new File("/snap/bin/chromium.chromedriver").exists()) {
-                            return new File("/snap/bin/chromium.chromedriver") {
+                        if (new File("/snap/chromium/current/Downloads/chromedriver").exists()) {
+                            return new File("/snap/chromium/current/Downloads/chromedriver") {
                                 @Override
                                 public String getCanonicalPath() throws IOException {
                                     return this.getAbsolutePath();

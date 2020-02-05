@@ -3,8 +3,6 @@ pipeline {
     stages {
         stage('--Docker setup--') {
                 steps {
-                    sh "apt update"
-                    sh "apt install docker.io -y"
                     sh "usermod -aG docker $USER"
                     sh "chmod 777 /var/run/docker.sock"
                     sh "systemctl enable docker"

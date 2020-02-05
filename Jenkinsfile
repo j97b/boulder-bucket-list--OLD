@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-//         stage('--Docker setup--') {
-//                 steps {
-//                     sh "usermod -aG docker $USER"
-//                     sh "chmod 777 /var/run/docker.sock"
-//                     sh "systemctl enable docker"
-//                 }
-//          }
         stage('--Remove static folder--') {
                 steps {
                     sh "rm -rf src/main/resources/static/"
@@ -20,14 +13,14 @@ pipeline {
             }
             stage('--Build back-end--') {
                 steps {
-                    sh "docker build -t bbl-backend-test ."
+                    sh "docker build -t bbl-backend-production ."
                     }
             }
         stage('--Deploy--') {
               steps {
                     sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PSSWRD}"
-                    sh "docker tag bbl-backend-test tigs1995/bbl-backend-test"
-                    sh "docker push tigs1995/bbl-backend-test"
+                    sh "docker tag bbl-backend-production tigs1995/bbl-backend-production"
+                    sh "docker push tigs1995/bbl-backend-production"
                     }
               }
     }

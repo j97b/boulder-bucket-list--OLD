@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('--Isolate frontend folder--') {
             steps {
-                sh "mv src/main/resources/static ."
+                sh "cd src/main/resources/static/"
             }
         }
         stage('--Build front-end--') {

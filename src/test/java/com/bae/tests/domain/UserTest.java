@@ -7,11 +7,16 @@ import com.bae.persistence.domain.User;
 
 public class UserTest {
 
-	private User testUser = new User("testName");
+	private User testUser = new User("testName","testPassword");
 
 	@Test
 	public void getUsernameTest() {
-		Assert.assertEquals("testName", testUser.getName());
+		Assert.assertEquals("testName", testUser.getUsername());
+	}
+
+	@Test
+	public void getHashedPasswordTest() {
+		Assert.assertEquals("testPassword", testUser.getHashedPassword());
 	}
 
 }

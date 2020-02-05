@@ -10,7 +10,7 @@ pipeline {
                 steps {
                     sh "mvn clean package deploy"
                     }
-            }
+            } 
             stage('--Build back-end--') {
                 steps {
                     sh "docker build -t bbl-backend-production ."

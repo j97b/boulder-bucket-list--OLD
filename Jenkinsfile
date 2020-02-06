@@ -13,14 +13,19 @@ pipeline {
             } 
             stage('--Build back-end--') {
                 steps {
-                    sh "docker build -t bbl-backend-production ."
+                    sh "docker build -t bbl-backend ."
                     }
             }
-        stage('--Deploy--') {
+        stage('--Push docker image--') {
               steps {
                     sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PSSWRD}"
-                    sh "docker tag bbl-backend-production tigs1995/bbl-backend-production"
-                    sh "docker push tigs1995/bbl-backend-production"
+                    sh "docker tag bbl-backend tigs1995/bbl-backend"
+                    sh "docker push tigs1995/bbl-backend"
+                    }
+              }
+        stage('--Deploy--') {
+              steps {
+                    sh "ssh -i 'project.pem' ubuntu@ec2-18-130-192-141.eu-west-2.compute.amazonaws.com"
                     }
               }
     }

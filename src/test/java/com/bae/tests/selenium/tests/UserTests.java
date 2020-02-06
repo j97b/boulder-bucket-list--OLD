@@ -73,7 +73,7 @@ public class UserTests {
 
     @Test
     public void userSetupTest() throws InterruptedException {
-        this.driver.get("http://35.176.135.139:8086/index.html");
+        this.driver.get("http://35.176.135.139:8086");
         IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
         BucketListPage bucketListPage = PageFactory.initElements(driver, BucketListPage.class);
         indexPage.addUser("james","password");

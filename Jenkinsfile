@@ -13,14 +13,14 @@ pipeline {
             } 
             stage('--Build back-end--') {
                 steps {
-                    sh "docker build -t bbl-backend ."
+                    sh "docker build -t bbl-backend-production ."
                     }
             }
         stage('--Push docker image--') {
               steps {
                     sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PSSWRD}"
-                    sh "docker tag bbl-backend tigs1995/bbl-backend"
-                    sh "docker push tigs1995/bbl-backend"
+                    sh "docker tag bbl-backend-production tigs1995/bbl-backend-production"
+                    sh "docker push tigs1995/bbl-backend-production"
                     }
               }
     }

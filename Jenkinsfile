@@ -23,10 +23,5 @@ pipeline {
                     sh "docker push tigs1995/bbl-backend"
                     }
               }
-        stage('--Deploy--') {
-              steps {
-                    sh "ssh -i 'project.pem' ubuntu@ec2-18-130-192-141.eu-west-2.compute.amazonaws.com"
-                    }
-              }
     }
 }

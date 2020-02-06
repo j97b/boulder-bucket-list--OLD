@@ -118,6 +118,11 @@ I would also like to add a note system, where each boulder can have a number of 
 
 # DevOps Project
 
+<a name="devopsbrief"></a>
+## Brief
+
+Words words words
+
 <a name="auth"></a>
 ## Authors
 

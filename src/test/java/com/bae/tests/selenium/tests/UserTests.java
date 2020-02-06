@@ -45,7 +45,7 @@ public class UserTests {
         }
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/usr/bin/chromium-browser");
-//        options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-debugging-port=9222");
@@ -73,7 +73,7 @@ public class UserTests {
 
     @Test
     public void userSetupTest() throws InterruptedException {
-        this.driver.get("http://localhost:" + port + "/bbl/index.html");
+        this.driver.get("http://localhost:" + port + "/index.html");
         IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
         BucketListPage bucketListPage = PageFactory.initElements(driver, BucketListPage.class);
         indexPage.addUser("james","password");

@@ -105,9 +105,11 @@ public class BucketListPage {
                 this.completionDateEntry.getText().equals(completionDate);
     }
 
-    public void deleteUser() {
+    public void deleteUser() throws InterruptedException {
         this.deleteUserButton.click();
+        Thread.sleep(50);
         this.confirmDeleteButton.click();
+        Thread.sleep(50);
     }
 
     public String loggedInUser() {

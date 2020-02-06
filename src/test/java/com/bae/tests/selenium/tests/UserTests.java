@@ -79,6 +79,7 @@ public class UserTests {
         indexPage.addUser("james","password");
         indexPage.login("james","password");
         assertEquals(bucketListPage.loggedInUser(),"james");
+        bucketListPage.deleteUser();
     }
 
     @After

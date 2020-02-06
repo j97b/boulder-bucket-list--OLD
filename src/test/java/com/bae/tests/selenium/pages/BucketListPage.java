@@ -59,6 +59,12 @@ public class BucketListPage {
     @FindBy(id="userInfo")
     private WebElement username;
 
+    @FindBy(id="deleteUser")
+    private WebElement deleteUserButton;
+
+    @FindBy(xpath="/html/body/div[7]/div/div/div[3]/button[2]")
+    private WebElement confirmDeleteUser;
+
     public void addBoulder(String name, String location, String grade, String status, String attemptDate, String completionDate) {
         this.addBoulderButton.click();
         this.nameField.sendKeys(name);
@@ -97,6 +103,11 @@ public class BucketListPage {
                 this.statusEntry.getText().equals(status) &&
                 this.attemptDateEntry.getText().equals(attemptDate) &&
                 this.completionDateEntry.getText().equals(completionDate);
+    }
+
+    public void deleteUser() {
+        this.deleteUserButton.click();
+        this.confirmDeleteButton.click();
     }
 
     public String loggedInUser() {

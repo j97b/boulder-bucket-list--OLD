@@ -31,6 +31,7 @@
 [External Links](#links)
 
 # Individual Project
+James Barron
 
 <a name="brief"></a>
 ## Project Brief
@@ -88,7 +89,7 @@ The application was created using the following technologies:
  * H2 - Database
  * Java - Backend Logic
  * JavaScript, CSS, HTML - Frontend
- * [GitHub](https://github.com/j97b/boulder-bucket-list.git) - Version Control
+ * GitHub - Version Control
  * Jenkins - CI Server
  * Maven - Build Tool
  * AWS - Deployment Environment
@@ -118,16 +119,17 @@ I would also like to add a note system, where each boulder can have a number of 
 
 
 # DevOps Project
+James Barron & Tigs Knowles
 
 <a name="devopsbrief"></a>
 ## Brief
 
-Words words words
+To create a fully-deployed version of a full-stack OOP application, with utilisation of supporting tools, methodologies and technologies that encapsulate all core modules covered during training.
 
 <a name="devopssolution"></a>
 ## Our Solution
 
-Solution solution solution
+We have deployed my bucket list application, as created in the individual project. It is deployed with a CI/CD pipeline using Jenkins, 
 
 <a name="auth"></a>
 ## Authors
@@ -139,6 +141,10 @@ Tigs Knowles
 <a name="links"></a>
 ## Links
 
-[Trello board](https://trello.com/b/smf3HVHB/bouldering-bucket-list)
+[Trello board (Individual Project)](https://trello.com/b/smf3HVHB/bouldering-bucket-list)
+
+[Trello board (DevOps Project)](https://trello.com/b/Cy0aExH2/devops-project)
+
+[GitHub repository for front end](https://github.com/j97b/boulder-bucket-list-frontend)
 
 [Slides for presentation given on 20/01/2020](https://drive.google.com/file/d/1jSpfCxke0iwbbhMG-sXShDcBtMZq94Mp/view?usp=sharing)

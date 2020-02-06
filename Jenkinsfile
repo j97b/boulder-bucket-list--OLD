@@ -23,5 +23,15 @@ pipeline {
                     sh "docker push tigs1995/bbl-backend-production"
                     }
               }
+        stage('--Deploy to test environment--') {
+              steps {
+                    sh "ssh -i /home/jenkins/project.pem ubuntu@ec2-18-130-192-141.eu-west-2.compute.amazonaws.com './script.sh'"
+                    }
+              }
+        stage('--Deploy to production environment--') {
+              steps {
+                    sh "ssh -i /home/jenkins/project.pem ubuntu@ec2-18-130-254-59.eu-west-2.compute.amazonaws.com './script.sh'"
+                    }
+              }
     }
 }

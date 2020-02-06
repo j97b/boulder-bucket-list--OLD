@@ -1,6 +1,9 @@
 # Boulder Bucket List
 
 ## Index
+
+### Individual Project
+
 [Brief](#brief)
  * [Solution](#solution)
  
@@ -18,9 +21,15 @@
 
 [Future Development](#future)
 
-[Author](#author)
+### DevOps Project
+
+[Brief](#devopsbrief)
+
+[Authors](#auth)
 
 [External Links](#links)
+
+# Individual Project
 
 <a name="brief"></a>
 ## Project Brief
@@ -105,10 +114,16 @@ The next step for me is to refine the login system, giving users a password and 
 
 I would also like to add a note system, where each boulder can have a number of notes attached to them, giving users the possibilty to create a diary of each climb, or to note down specific directions for a hard to find boulder. Another idea would be to improve on the location functionality, so each boulder could be assigned coordinates, and the user can see a map with the boulder location shown on the map. This could allow users to find boulders more easily.
 
+
+
+# DevOps Project
+
 <a name="auth"></a>
-## Author
+## Authors
 
 James Barron
+
+Tigs Knowles
 
 <a name="links"></a>
 ## Links

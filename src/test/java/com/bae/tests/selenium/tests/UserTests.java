@@ -68,13 +68,12 @@ public class UserTests {
     }
     public boolean isLinux(){
         String os = System.getProperty("os.name").toLowerCase();
-        if (os.contains("win")) return false;
-        return true;
+        return !os.contains("win");
     }
 
     @Test
     public void userSetupTest() throws InterruptedException {
-        this.driver.get("http://18.130.213.255:8086/bbl/index.html");
+        this.driver.get("http://localhost:" + port + "/bbl/index.html");
         IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
         BucketListPage bucketListPage = PageFactory.initElements(driver, BucketListPage.class);
         indexPage.addUser("james","password");

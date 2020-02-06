@@ -49,6 +49,7 @@ public class IndexPage {
         this.inputPassword.sendKeys(password);
         Thread.sleep(500);
         this.signInButton.click();
+        Thread.sleep(500);
     }
 
 }

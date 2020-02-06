@@ -45,7 +45,7 @@ public class UserTests {
         }
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/usr/bin/chromium-browser");
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-debugging-port=9222");

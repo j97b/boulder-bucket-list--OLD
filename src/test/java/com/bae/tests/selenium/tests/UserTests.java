@@ -78,8 +78,9 @@ public class UserTests {
         BucketListPage bucketListPage = PageFactory.initElements(driver, BucketListPage.class);
         indexPage.addUser("james","password");
         indexPage.login("james","password");
-        assertEquals(bucketListPage.loggedInUser(),"james");
+        String user = bucketListPage.loggedInUser();
         bucketListPage.deleteUser();
+        assertEquals(user,"james");
     }
 
     @After

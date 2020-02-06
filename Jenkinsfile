@@ -16,7 +16,7 @@ pipeline {
                     sh "docker build -t bbl-backend ."
                     }
             }
-        stage('--Deploy--') {
+        stage('--Push image to docker--') {
               steps {
                     sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PSSWRD}"
                     sh "docker tag bbl-backend tigs1995/bbl-backend"

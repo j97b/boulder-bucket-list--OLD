@@ -24,6 +24,7 @@
 ### DevOps Project
 
 [Brief](#devopsbrief)
+ * [Solution](#devopssolution)
 
 [Authors](#auth)
 
@@ -37,7 +38,7 @@
 To create an OOP-based application with utilisation of supporting tools, methodologies and technologies that encapsulate all core modules covered during training.
  
 <a name="solution"></a>
-## My Solution
+### My Solution
  
 I chose to create an application for climbers to create a bucket list of boulders they wish to climb, and to track their progress on different boulders over time.
 
@@ -122,6 +123,11 @@ I would also like to add a note system, where each boulder can have a number of 
 ## Brief
 
 Words words words
+
+<a name="devopssolution"></a>
+## Our Solution
+
+Solution solution solution
 
 <a name="auth"></a>
 ## Authors

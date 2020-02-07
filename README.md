@@ -129,7 +129,20 @@ To create a fully-deployed version of a full-stack OOP application, with utilisa
 <a name="devopssolution"></a>
 ## Our Solution
 
-We have deployed my bucket list application, as created in the individual project. It is deployed with a CI/CD pipeline using Jenkins, 
+We have created four pipelines using Jenkins, two to deploy the front end and back end of the development branch of the boulder bucket list project to a test environment hosted on AWS, and two to deploy the front and back end of the master branch to a live environment, via the test environment. 
+The back end pipelines achieve this by packaging the application as cloned from the github repository, creating an image of the .jar file produced, and pushing the image to Dockerhub. Snapshots are also stored in a Nexus artifact repository. Once these images are on Dockerhub, the relevant environment instance pulls the image from Dockerhub and runs it on the instance.
+
+
+<a name="devopstech"></a>
+## Technologies
+
+* Trello - Project Management
+* Github - Version Control
+* Maven - Build Tool
+* Docker/Dockerhub - Containerisation and image storing
+* Nexus - Artifact Repository
+* AWS - Hosting test and production environments
+
 
 <a name="auth"></a>
 ## Authors

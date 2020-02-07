@@ -28,6 +28,8 @@
  
 [Technologies](#devopsTech)
 
+[Future Improvements](#devopsFuture)
+
 [Authors](#auth)
 
 [External Links](#links)
@@ -157,6 +159,10 @@ The front end pipelines build a docker image and push this to docker hub, after 
 * Docker/Dockerhub - Containerisation and image storing
 * Nexus - Artifact Repository
 * AWS - Hosting test and production environments
+
+<a name="devopsFuture"></a>
+## Future Improvements
+Cleaning up GitHub repositories, implementing Tigs' project, more Selenium testing
 
 
 <a name="auth"></a>

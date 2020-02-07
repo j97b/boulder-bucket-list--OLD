@@ -1,0 +1,18 @@
+1. Create VPC
+2. Create RDS database 
+3. Make sure it matches the database in the application.properties
+4. Create user with RDS and EC2 access
+5. Create an IAM role that has RDS database access only
+6. Create 4 EC2 instances (refer to slide 4 of the presentation for full layout of EC2 instances)
+7. Set up security groups:
+	SSH MyIP and Jenkins IP - All 
+	HTTP MyIP - All
+	8085 to backend IP - Front end 
+	8086 Anywhere - Front end
+8. Create Dockerfiles for front end and back end (refer to Dockerfiles in GitHub)
+9. Create Jenkinsfiles for front end and back end (refer to Jenkinsfiles in GitHub)
+10. Create nginx.conf file for front end (refer to nginx.conf file in GitHub)
+11. Change IPs in proxy_pass to the back end IPs
+12. Add Nexus dependencies into pom.xml (refer to GitHub for these)
+13. Create Jenkins and Nexus instances 
+14. Make sure each instance has Java, Maven, Docker, chromium and git installed on it 

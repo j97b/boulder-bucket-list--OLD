@@ -133,6 +133,15 @@ We have created four pipelines using Jenkins, two to deploy the front end and ba
 The back end pipelines achieve this by packaging the application as cloned from the github repository, creating an image of the .jar file produced, and pushing the image to Dockerhub. Snapshots are also stored in a Nexus artifact repository. Once these images are on Dockerhub, the relevant environment instance pulls the image from Dockerhub and runs it on the instance.
 
 
+
+![backend test pipeline](/Documentation/backendTestPipeline.png)
+
+![frontend test pipeline](/Documentation/frontendTestPipeline.png)
+
+![backend live pipleine](/Documentation/backendLivePipeline.png)
+
+![frontend live pipeline](/Documentation/frontendLivePipeline.png)
+
 <a name="devopstech"></a>
 ## Technologies
 

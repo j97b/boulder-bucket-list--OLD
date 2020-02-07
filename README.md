@@ -130,17 +130,10 @@ To create a fully-deployed version of a full-stack OOP application, with utilisa
 ## Our Solution
 
 We have created four pipelines using Jenkins, two to deploy the front end and back end of the development branch of the boulder bucket list project to a test environment hosted on AWS, and two to deploy the front and back end of the master branch to a live environment, via the test environment. 
+
 The back end pipelines achieve this by packaging the application as cloned from the github repository, creating an image of the .jar file produced, and pushing the image to Dockerhub. Snapshots are also stored in a Nexus artifact repository. Once these images are on Dockerhub, the relevant environment instance pulls the image from Dockerhub and runs it on the instance.
 
-
-
-![backend test pipeline](/Documentation/backendTestPipeline.png)
-
-![frontend test pipeline](/Documentation/frontendTestPipeline.png)
-
-![backend live pipleine](/Documentation/backendLivePipeline.png)
-
-![frontend live pipeline](/Documentation/frontendLivePipeline.png)
+The front end pipelines build a docker image and push this to docker hub, after which they ssh into the test environment and run the script, which pulls down this image from docker hub and runs it in a container. The script then clones the selenium GitHub repository and runs the selenium tests through Jenkins, which uses Maven to see if these pass or not. If they do not pass, the Jenkins build will fail and the project will not run. If this is from the master branch, here is an extra step in the pipeline which will then ssh into the production environment and pull down the docker image and run this on a container. 
 
 <a name="devopstech"></a>
 ## Technologies

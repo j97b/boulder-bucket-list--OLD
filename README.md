@@ -175,4 +175,6 @@ Tigs Knowles
 
 [GitHub repository for front end](https://github.com/j97b/boulder-bucket-list-frontend)
 
-[Slides for presentation given on 20/01/2020](https://drive.google.com/file/d/1jSpfCxke0iwbbhMG-sXShDcBtMZq94Mp/view?usp=sharing)
+[Slides for individual project presentation given on 20/01/2020](https://drive.google.com/file/d/1jSpfCxke0iwbbhMG-sXShDcBtMZq94Mp/view?usp=sharing)
+
+[Slides for DevOps project presentation given on 07/02/2020](https://docs.google.com/presentation/d/1dSEVS7LXR-__83vPe7KUIxeRNdH4P_Pq/edit#slide=id.p15)

@@ -1,0 +1,29 @@
+#!/bin/bash
+docker login -u **USERNAME** -p **PASSWORD**
+docker pull tigs1995/bbl-backend-test
+docker stop bbl-backend-test
+docker rm bbl-backend-test
+docker run --restart unless-stopped --name bbl-backend-test -d -p 8085:8082 tigs1995/bbl-backend-test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

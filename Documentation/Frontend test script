@@ -1,0 +1,17 @@
+#!/bin/bash
+docker login -u **USERNAME** -p **PASSWORD**
+docker pull tigs1995/bbl-frontend-test
+docker stop bbl-frontend-test
+docker rm bbl-frontend-test
+docker run --restart unless-stopped --name bbl-frontend-test -d -p 8086:80 tigs1995/bbl-frontend-test
+git clone -b dev-selenium https://github.com/j97b/boulder-bucket-list.git
+cd boulder-bucket-list
+mvn -X test
+cd
+rm -rf boulder-bucket-list
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+#!/bin/bash
+docker login -u **USERNAME** -p **PASSWORD**
+docker pull tigs1995/bbl-frontend-production
+docker stop bbl-frontend-production
+docker rm bbl-frontend-production
+docker run --restart unless-stopped --name bbl-frontend-production -d -p 8086:80 tigs1995/bbl-frontend-production
+
+
+
+
+
+
+
+
+
+
+
+
